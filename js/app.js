@@ -1,6 +1,15 @@
-//immediate invoked function expression
-(function() {
-  const quotes = [
+const text = document.querySelector('#quote');
+const author = document.querySelector('.quote-author');
+const button = document.querySelector('#generate-btn');
+const quotes = [
+    {
+      quote: 'How are you guys?',
+      author: 'Leha'
+    },
+    {
+      quote: 'Run forest!',
+      author: 'sanya'
+    },
     {
       quote:
         "Life is too short and sweet to be spent by cribbing and complaining about things. Here are some random quotes about the most wonderful gift that we've got",
@@ -30,15 +39,10 @@
         "A critic is someone who never actually goes to the battle, yet who afterwards comes out shooting the wounded.",
       author: " Tyne Daly"
     }
-  ];
+]
 
-  const btn = document.getElementById("generate-btn");
-
-  btn.addEventListener("click", function() {
-    let random = Math.floor(Math.random() * quotes.length);
-    console.log(random);
-
-    document.getElementById("quote").textContent = quotes[random].quote;
-    document.querySelector(".author").textContent = quotes[random].author;
-  });
-})();
+button.addEventListener('click', () => {
+    const index = parseInt(Math.random() * quotes.length);
+    text.innerHTML = quotes[index].quote;
+    author.innerHTML = quotes[index].author;
+})
